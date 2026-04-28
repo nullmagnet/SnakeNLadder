@@ -7,10 +7,20 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="theme-royal">
     <div class="app-container">
         <header>
-            <h1>Royal <span>Snake & Ladder</span></h1>
+            <div class="header-top">
+                <h1>Royal <span>Snake & Ladder</span></h1>
+                <div class="theme-controls">
+                    <select id="theme-select">
+                        <option value="theme-royal">Royal Night</option>
+                        <option value="theme-emerald">Emerald Forest</option>
+                        <option value="theme-ocean">Midnight Ocean</option>
+                        <option value="theme-sunset">Sunset Gold</option>
+                    </select>
+                </div>
+            </div>
             <p>Master the board, dodge the snakes!</p>
         </header>
 
