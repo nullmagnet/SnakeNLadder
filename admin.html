@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Royal Snake & Ladder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="login-page">
+    <div class="login-wrapper">
+        <div class="login-card glass">
+            <div class="login-logo">
+                <div class="logo-icon">👑</div>
+                <h1>Royal <span>Admin</span></h1>
+                <p>Snake & Ladder Analytics</p>
+            </div>
+
+            <form id="login-form" novalidate>
+                <div class="field-group">
+                    <label for="username">Username</label>
+                    <div class="input-wrap">
+                        <span class="input-icon">👤</span>
+                        <input type="text" id="username" placeholder="Enter username" autocomplete="username" />
+                    </div>
+                </div>
+                <div class="field-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrap">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="password" placeholder="Enter password" autocomplete="current-password" />
+                    </div>
+                </div>
+                <div id="error-msg" class="error-msg hidden">Invalid username or password.</div>
+                <button type="submit" class="login-btn">Sign In</button>
+            </form>
+
+            <a href="index.html" class="back-link">← Back to Game</a>
+        </div>
+    </div>
+
+    <script>
+        // Redirect if already logged in
+        if (sessionStorage.getItem('snl_admin_auth') === 'true') {
+            window.location.href = 'admin-dashboard.html';
+        }
+
+        const ADMIN_USER = 'admin';
+        const ADMIN_PASS = 'snl@2024';
+
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value.trim();
+            const pass = document.getElementById('password').value;
+            const err  = document.getElementById('error-msg');
+
+            if (user === ADMIN_USER && pass === ADMIN_PASS) {
+                sessionStorage.setItem('snl_admin_auth', 'true');
+                window.location.href = 'admin-dashboard.html';
+            } else {
+                err.classList.remove('hidden');
+                document.getElementById('password').value = '';
+            }
+        });
+    </script>
+</body>
+</html>
