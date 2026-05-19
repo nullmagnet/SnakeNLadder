@@ -59,8 +59,16 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    padding: 2rem;
+    padding: 1rem;
     transition: background 0.5s ease;
+}
+
+@media (min-width: 901px) {
+    body {
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
+    }
 }
 
 .app-container {
@@ -68,7 +76,21 @@ body {
     max-width: 1200px;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
+}
+
+@media (min-width: 901px) {
+    .app-container {
+        height: 100%;
+        justify-content: space-between;
+    }
+    
+    main {
+        flex: 1 1 0%;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 header {
@@ -84,7 +106,7 @@ header {
 }
 
 header h1 {
-    font-size: 3rem;
+    font-size: 2.2rem;
     font-weight: 800;
     letter-spacing: -1px;
 }
@@ -97,11 +119,16 @@ header h1 span {
 
 header p {
     color: var(--text-dim);
-    font-size: 1.1rem;
-    margin-top: 0.5rem;
+    font-size: 1rem;
+    margin-top: 0.2rem;
 }
 
-.theme-controls select {
+.header-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.header-controls select {
     background: var(--glass);
     border: 1px solid var(--glass-border);
     color: white;
@@ -112,15 +139,23 @@ header p {
     outline: none;
 }
 
-.theme-controls select option {
+.header-controls select option {
     background: #1a1a1a;
 }
 
 .game-layout {
     display: grid;
     grid-template-columns: 1fr 350px;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: start;
+}
+
+@media (min-width: 901px) {
+    .game-layout {
+        flex: 1 1 0%;
+        min-height: 0;
+        align-items: stretch;
+    }
 }
 
 /* Board Styling */
@@ -136,6 +171,12 @@ header p {
         0 0 50px rgba(142, 68, 173, 0.2),
         inset 0 0 30px rgba(0, 0, 0, 0.5);
     overflow: hidden;
+    
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    min-height: 0;
+    margin: 0 auto;
 }
 
 .board {
@@ -223,7 +264,16 @@ header p {
 .game-controls {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
+    min-height: 0;
+}
+
+@media (min-width: 901px) {
+    .game-controls {
+        max-height: 100%;
+        overflow-y: auto;
+        padding-right: 4px;
+    }
 }
 
 .glass {
@@ -231,16 +281,16 @@ header p {
     backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
-    padding: 1.5rem;
+    padding: 1rem;
     box-shadow: var(--shadow);
 }
 
 .status-card h3, .players-list h3, .game-logs h3 {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--text-dim);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .player-info {
@@ -353,11 +403,11 @@ header p {
 .primary-btn {
     background: linear-gradient(to right, var(--primary), var(--primary-light));
     border: none;
-    padding: 1rem 2rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 12px;
     color: white;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     width: 100%;
@@ -396,7 +446,7 @@ header p {
 
 /* Game Logs */
 .logs {
-    height: 150px;
+    height: 120px;
     overflow-y: auto;
     font-size: 0.9rem;
     color: var(--text-dim);
@@ -455,6 +505,28 @@ header p {
 
 .rolling {
     animation: shake 0.2s infinite;
+}
+
+/* Footer styling */
+.app-footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    border-top: 1px solid var(--glass-border);
+}
+
+.app-footer .brand-name {
+    font-weight: 600;
+    background: linear-gradient(to right, var(--primary-light), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: filter 0.3s ease;
+}
+
+.app-footer .brand-name:hover {
+    filter: brightness(1.2);
 }
 
 /* Mobile Responsiveness */

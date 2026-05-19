@@ -12,7 +12,12 @@
         <header>
             <div class="header-top">
                 <h1>Royal <span>Snake & Ladder</span></h1>
-                <div class="theme-controls">
+                <div class="header-controls">
+                    <select id="players-select">
+                        <option value="2">2 Players</option>
+                        <option value="3">3 Players</option>
+                        <option value="4">4 Players</option>
+                    </select>
                     <select id="theme-select">
                         <option value="theme-royal">Royal Night</option>
                         <option value="theme-emerald">Emerald Forest</option>
@@ -73,6 +78,10 @@
                 </aside>
             </div>
         </main>
+
+        <footer class="app-footer">
+            <p>Powered by <span class="brand-name">Null Magnet</span></p>
+        </footer>
 
         <div id="win-modal" class="modal hidden">
             <div class="modal-content glass">
